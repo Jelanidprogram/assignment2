@@ -22,25 +22,75 @@ public abstract class Animal {
      * TODO M1: Implement constructor with validation
      * TODO M4: Initialize sightings list
      */
+
+    private static int nextId =1;
+    private int animalId;
+    private String species;
+    private String nickname;
+    private String island;
+    private double weightKg;
+    private String healthStatus;
     public Animal(String species, String nickname, String island, double weightKg, String healthStatus) {
         // TODO M1: Validate parameters and assign fields
         // TODO M1: Auto-assign animalId from nextId, then increment nextId
         // TODO M4: Initialize sightings ArrayList
+this.species = species;
+this.nickname=nickname;
+this.island=island;
+this.weightKg=weightKg;
+this.healthStatus=healthStatus;
+
+if(this.species == null || this.species.equals("")){
+    throw new IllegalArgumentException("Species cannot be empty");
+}
+
+if(this.nickname == null || this.nickname.equals("")){
+    throw new IllegalArgumentException("Nickname cannout be empty");
+}
+
+if (this.island == null || this.island.equals("")){
+    throw new IllegalArgumentException("Island cannot be empty");
+}
+
+if(this.weightKg <=0.0){
+    throw new IllegalArgumentException("Please check back the weight of the animal");
+}
+
+if (this.healthStatus.equals("Healthy") || this.healthStatus.equals("Injured") || this.healthStatus.equals("Critical")){
+    throw new IllegalArgumentException("Health status must either be Healthy , injured or Critical");
+}
+
+animalId = nextId;
     }
 
     // TODO M1: Write getters for all fields (getAnimalId, getSpecies, getNickname,
     //          getIsland, getWeightKg, getHealthStatus)
 
     // TODO M2: Write setIsland(String island) method
-
+public void setIsland(String island){}
     // TODO M4: Write getSightings() getter that returns the ArrayList<String>
 
     /**
      * Updates the health status after validation.
      * TODO M1: Implement updateHealth
      */
+    public int getAnimalId(){return animalId;}
+    public String getSpecies(){return species;}
+    public String getNickname(){return nickname;}
+    public String getIsland(){return island;}
+    public double getWeightKg(){return weightKg;}
+    public String getHealthStatus(){return healthStatus;}
     public void updateHealth(String newStatus) {
-        // TODO M1: Validate newStatus and update the field
+      if(healthStatus.equals("Healthy")){
+          updateHealth("Healthy");// TODO M1: Validate newStatus and update the field
+      } else if (healthStatus.equals("Injured"))
+        {
+          updateHealth("Injured");
+        }
+
+      else if (healthStatus.equals("Critical")){
+          updateHealth("Critical");
+      }
     }
 
     /**
@@ -64,7 +114,9 @@ public abstract class Animal {
     @Override
     public String toString() {
         // TODO M1: Return formatted string
-        return "";
+        return
+                animalId + " " + species + " ' " + nickname + " ' " + "[ " + island + " ]"
+                + weightKg + " " + "kg" + " - " + healthStatus;
     }
 
     /**
