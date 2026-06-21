@@ -35,7 +35,7 @@ public String getType(){return "Reptile";}
      * Daily food cost = 25.0 + weightKg * 2.0
      * TODO M2: Implement getDailyFoodCostTTD()
      */
-public double getDailyFoodCostTTD(){return 25.0 + weightKg * 2.0;}
+public double getDailyFoodCostTTD(){return 25.0 + getWeightKg() * 2.0;}
     // --- Trackable methods ---
     // TODO M4: Implement logSighting(String date, String location)
 

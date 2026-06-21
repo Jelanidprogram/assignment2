@@ -9,8 +9,9 @@ package comp2603;
  */
 public interface Relocatable {
     // TODO M3: Declare canRelocateTo method
-
     // TODO M3: Declare getRelocationCost method
-
     // TODO M3: Declare relocateTo method
+boolean canRelocateTo(String targetIsland);
+double getRelocationCost();
+void relocateTo(String island);
 }

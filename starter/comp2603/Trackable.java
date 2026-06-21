@@ -8,6 +8,9 @@ package comp2603;
  *   - String getLastSighting()
  */
 public interface Trackable {
+  void logSighting(String date, String location);
+  int getSightingCount();
+  String getLastSighting();
     // TODO M3: Declare logSighting method
 
     // TODO M3: Declare getSightingCount method
