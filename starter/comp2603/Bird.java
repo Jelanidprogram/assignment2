@@ -72,9 +72,28 @@ getSightings().add (date + " at " + location);
     // TODO M6: Implement canRelocateTo(String targetIsland)
     //          Birds can always be relocated; return true
 
+        public boolean canRelocateTo(String targetIsland){
+    return true;
+        }
+
+    @Override
+    public double getRelocationCost() {
+        return 0;
+    }
+
+
     // TODO M6: Implement getRelocationCost()
     //          Returns 500.0 + weightKg * 100.0
 
+public double geetRelocationCost(){
+    return 500.0 + getWeightKg() * 100.0;
+}
+
     // TODO M6: Implement relocateTo(String island)
     //          Updates the island using setIsland()
+
+    public void relocateTo(String island){
+    setIsland(island);
+    }
+
 }

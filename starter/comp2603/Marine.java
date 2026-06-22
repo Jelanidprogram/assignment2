@@ -5,7 +5,7 @@ package comp2603;
  * TODO M2: Make this class extend Animal
  * TODO M3: Make this class implement Trackable and Relocatable
  */
-public class Marine extends Animal implements Trackable , Relocatable {
+public class Marine extends Animal implements Trackable,Relocatable {
         /* TODO M2: extends Animal */ /* TODO M3: implements Trackable, Relocatable */
     // TODO M2: Declare private fields: maxDepthM (double), tankSizeLitres (int)
 private double maxDepthM;
@@ -46,9 +46,37 @@ public double getDailyFoodCostTTD(){return 50.0 + getWeightKg() * 3.0;}
     // TODO M6: Implement canRelocateTo(String targetIsland)
     //          Returns true only if targetIsland is NOT the animal's current island
 
+    public boolean canRelocateTo(String targetIsland){
+        if(!targetIsland.equals(getIsland())){
+            return true;
+        }
+        else {
+            return false;
+        }
+}
     // TODO M6: Implement getRelocationCost()
     //          Returns 2000.0 + tankSizeLitres * 5.0
-
+public double getRelocationCost(){
+    return 2000.0 + tankSizeLitres * 5.0;
+}
     // TODO M6: Implement relocateTo(String island)
     //          Updates the island using setIsland()
+public void relocateTo(String island){
+   setIsland(island);
+}
+
+    @Override
+    public void logSighting(String date, String location) {
+
+    }
+
+    @Override
+    public int getSightingCount() {
+        return 0;
+    }
+
+    @Override
+    public String getLastSighting() {
+        return "";
+    }
 }

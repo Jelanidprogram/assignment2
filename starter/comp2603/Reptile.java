@@ -36,7 +36,22 @@ public String getType(){return "Reptile";}
      * TODO M2: Implement getDailyFoodCostTTD()
      */
 public double getDailyFoodCostTTD(){return 25.0 + getWeightKg() * 2.0;}
-    // --- Trackable methods ---
+
+        @Override
+        public void logSighting(String date, String location) {
+
+        }
+
+        @Override
+        public int getSightingCount() {
+            return 0;
+        }
+
+        @Override
+        public String getLastSighting() {
+            return "";
+        }
+        // --- Trackable methods ---
     // TODO M4: Implement logSighting(String date, String location)
 
     // TODO M4: Implement getSightingCount()

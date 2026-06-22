@@ -98,13 +98,11 @@ protected ArrayList<String> getSightings(){return sightings;}
      * TODO M2: Declare as abstract
      */
     public abstract String getType();
-
     /**
      * Returns the daily food cost in TTD. Varies by subclass.
      * TODO M2: Declare as abstract
      */
     public abstract double getDailyFoodCostTTD();
-
     /**
      * Format: "#%03d %s '%s' (%s) [%s] %.2f kg - %s"
      * Example: "#001 Scarlet Ibis 'Ruby' (Trinidad) [Bird] 0.35 kg - Healthy"
@@ -115,26 +113,34 @@ protected ArrayList<String> getSightings(){return sightings;}
     public String toString() {
         // TODO M1: Return formatted string
         return String.format("#%03d %s '%s' (%s) [%s] %.2f kg - %s",
-                animalId, species, nickname, island, getType(), weightKg, healthStatus);
-                 }
+                animalId, species, nickname, island, getType(),
+                weightKg, healthStatus);
+    }
 
     /**
      * Two animals are equal if they have the same animalId.
      *
      * TODO M5: Implement equals
      */
+
+
     @Override
     public boolean equals(Object obj) {
         // TODO M5: Implement equality by animalId
-        return false;
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+        Animal animal = (Animal) obj;
+        return animalId == animal.animalId;
+
     }
 
     /**
      * TODO M5: Implement hashCode based on animalId
      */
+
     @Override
     public int hashCode() {
         // TODO M5: Return hash based on animalId
-        return 0;
+        return Integer.hashCode(animalId);
     }
 }
