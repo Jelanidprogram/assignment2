@@ -64,7 +64,7 @@ getSightings().add (date + " at " + location);
 @Override
     public String getLastSighting(){
     if(getSightings().isEmpty()){
-        return "No sighting recorded";
+        return "No sightings recorded";
     }
     return getSightings().get(getSightings().size() - 1);
 }
@@ -77,17 +77,11 @@ getSightings().add (date + " at " + location);
         }
 
     @Override
-    public double getRelocationCost() {
-        return 0;
-    }
-
-
     // TODO M6: Implement getRelocationCost()
     //          Returns 500.0 + weightKg * 100.0
-
-public double geetRelocationCost(){
-    return 500.0 + getWeightKg() * 100.0;
-}
+    public double getRelocationCost() {
+    return 500.0 + getWeightKg() * 100.0 ;
+    }
 
     // TODO M6: Implement relocateTo(String island)
     //          Updates the island using setIsland()
