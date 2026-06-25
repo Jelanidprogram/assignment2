@@ -72,9 +72,15 @@ animalId = nextId;
     //          getIsland, getWeightKg, getHealthStatus)
 
     // TODO M2: Write setIsland(String island) method
-public void setIsland(String island){}
+public void setIsland(String island){
+  if(island == null || island.isEmpty()){
+      throw new IllegalArgumentException("Island cannot be empty");
+  }
+  this.island = island;
+}
+
     // TODO M4: Write getSightings() getter that returns the ArrayList<String>
-protected ArrayList<String> getSightings(){return sightings;}
+    protected ArrayList<String> getSightings(){return sightings;}
     /**
      * Updates the health status after validation.
      * TODO M1: Implement updateHealth

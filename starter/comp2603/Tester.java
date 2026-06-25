@@ -37,8 +37,29 @@ System.out.println(s1.getDailyFoodBudget());
         System.out.println(s1.getMostExpensiveAnimal().getNickname() + " (the " + s1.getMostExpensiveAnimal().getType() + ") at $" + s1.getMostExpensiveAnimal().getDailyFoodCostTTD() + "/day");
 
 
-       }
-}
+        Sanctuary s2 = new Sanctuary("Blue Lagoon","Jamaica",15);
+         // obtaining atlas id
+      int atlasId = -1 ;
+        Animal atlas =null;
+        for(Animal a: s1.getAnimals()){
+            if(a.getNickname().equals("Atlas")) {
+                atlas = a;
+                atlasId = a.getAnimalId();
+                break;
+            }
+            }
+            //boolean transfer = s1.transferAnimal(10,s2);
+            System.out.println(s1.transferAnimal(atlasId,s2));
+            System.out.println(atlas.getIsland());
+
+            }
+        }
+
+
+
+
+
+
 
 
 

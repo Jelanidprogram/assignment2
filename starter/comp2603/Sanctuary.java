@@ -124,7 +124,13 @@ public class Sanctuary {
      */
     public ArrayList<Animal> getRelocatableAnimals() {
         // TODO M8: Filter using instanceof Relocatable
-        return new ArrayList<Animal>();
+        ArrayList<Animal> relocate = new ArrayList<>();
+        for (Animal a : animals) {
+            if (a instanceof Relocatable) {
+                relocate.add(a);
+            }
+        }
+        return relocate;
     }
 
     /**
@@ -159,11 +165,27 @@ public class Sanctuary {
      *
      * TODO M8: Implement transferAnimal
      */
-    public boolean transferAnimal(int animalId, Sanctuary target) {
-        // TODO M8: Remove animal, check Relocatable, relocate, add to target
+    public boolean transferAnimal(int animalId, Sanctuary target){
+            // TODO M8: Remove animal, check Relocatable, relocate, add to target
+          Animal ani  = removeAnimal(animalId);
+
+           if (ani == null){return false;}
+
+         if (!(ani instanceof Relocatable)) {
+             animals.add(ani); // adding back the removed animal
+
+             return false;
+         }
+    Relocatable relocatable = (Relocatable) ani;
+    relocatable.relocateTo(target.getIsland());
+
+    if(!target.addAnimal(ani)){
+        relocatable.relocateTo(this.getIsland());
+        animals.add(ani);
         return false;
     }
-
+    return true;
+    }
     /**
      * Prints each animal's toString, indented by 2 spaces.
      *
