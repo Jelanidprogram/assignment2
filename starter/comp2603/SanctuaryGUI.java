@@ -129,7 +129,7 @@ add(scrollPane, BorderLayout.CENTER);
     private void runSearch() {
         // TODO M11: Implement filtering and display
         if (sanctuary == null) {
-            statusLabel.setText("There is no Santuary");
+            statusLabel.setText("There is no Sanctuary");
             return;
         }
         String searchText = searchField.getText().trim().toLowerCase();
