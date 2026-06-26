@@ -1,4 +1,7 @@
 package comp2603;
+
+import java.util.ArrayList;
+
 /**
  * Marine subclass. Implements Trackable and Relocatable.
  *
@@ -67,16 +70,24 @@ public void relocateTo(String island){
 
     @Override
     public void logSighting(String date, String location) {
-
+getSightings().add(date + " at " + location);
     }
 
     @Override
     public int getSightingCount() {
-        return 0;
+        return getSightings().size();
     }
 
     @Override
     public String getLastSighting() {
-        return "";
+        if(getSightings().isEmpty()){
+            return "No sightings recorded";
+        }
+        ArrayList<String> list = getSightings();
+        return list.get(list.size() - 1);
+
+
     }
+
+
 }

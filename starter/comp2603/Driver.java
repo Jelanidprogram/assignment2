@@ -41,32 +41,36 @@ Sanctuary Caroni = new Sanctuary("Caroni Bird Santuary","Trinidad",20);
          blagoon.addAnimal(m3);
 
         // TODO M9: Print "=== Caroni Bird Sanctuary roster ===" then printRoster()
-        System.out.println("=== Caroni Bird Santurary roster === ");
+        System.out.println("=== Caroni Bird Sanctuary roster === \n");
         Caroni.printRoster();
-
+System.out.println();
         // TODO M9: Print "=== Blue Lagoon Marine Park roster ===" then printRoster()
-System.out.println("=== Blue Lagoon Marine Park roster ===");
+System.out.println("=== Blue Lagoon Marine Park roster ===\n");
 blagoon.printRoster();
-
+        System.out.println();
 // TODO M9: Print "=== Daily food budgets ===" then each sanctuary's budget
 System.out.println("=== Daily food budgets === ");
 System.out.println("Caroni: $ " + Caroni.getDailyFoodBudget() +" TTD");
 System.out.println("Jamaica:$ " + blagoon.getDailyFoodBudget() + " TTD");
-
+        System.out.println();
         // TODO M9: Print "=== Birds at Caroni ===" then getAnimalsOfType("Bird")
 System.out.println("=== Birds at Caroni === ");
 for(Animal a : Caroni.getAnimalsOfType("Bird")){
     System.out.println(a);
 }
         // TODO M9: Print "=== Relocatable animals at Caroni ===" then getRelocatableAnimals()
-System.out.println("=== Relocatable animals at Caroni ===");
+        System.out.println();
+        System.out.println("=== Relocatable animals at Caroni ===");
+        System.out.println();
 for(Animal a : Caroni.getRelocatableAnimals()){
         System.out.println(a);
 }
         // TODO M9: Print "=== Sighting logs ===" then:
+        System.out.println();
         System.out.println("=== Sighting logs ===");
         //   Log Ruby: ("2026-06-10", "Caroni Swamp"), ("2026-06-12", "Nariva Swamp")
-Animal ruby = null;
+        System.out.println();
+        Animal ruby = null;
 for(Animal a : Caroni.getAnimals()){
     if(a.getNickname().equals("Ruby")){
         ruby = a;
@@ -81,33 +85,39 @@ if(ruby !=null && ruby instanceof Trackable){
 }
 
         //   Log Atlas: ("2026-06-11", "Matura Beach")
-        Animal atlas = null;
+
+        Animal Atlas = null;
         for(Animal a : Caroni.getAnimals()){
             if(a.getNickname().equals("Atlas")){
-                atlas = a;
+                Atlas = a;
             }
         }
-        if(atlas !=null && atlas instanceof Trackable){
-            Trackable t = (Trackable) atlas;
+        if(Atlas !=null && Atlas instanceof Trackable){
+            Trackable t = (Trackable) Atlas;
             t.logSighting("2026-06-11", "Matura Beach");
-            //t.logSighting("2026-06-12 ","Nariva Swamp");
+            //   t.logSighting("2026-06-12 ","Nariva Swamp");
             System.out.println("Atlas sighting count: " + t.getSightingCount());
             System.out.println("Atlas last sighting: " + t.getLastSighting());
         }
 
-        //   Print counts and last sightings for Ruby, Atlas, and Brutus
-        Animal brutus = null;
-        for (Animal a : Caroni.getAnimals()) {
-            if (a.getNickname().equals("Brutus")) {
-                brutus = a;
-                break;
+        //   Print counts and last sightings for Brutus
+
+        Animal Brutus = null;
+        for(Animal a : Caroni.getAnimals()){
+            if(a.getNickname().equals("Brutus")){
+                Brutus = a;
             }
         }
-        if (brutus != null && brutus instanceof Trackable) {
-            Trackable t = (Trackable) brutus;
-            System.out.println("Brutus last sighting: " + t.getLastSighting());
+        if(Brutus !=null && Brutus instanceof Trackable){
+            Trackable t = (Trackable) Brutus;
+            //tr.logSighting("2026-06-11", "Matura Beach");
+            //   t.logSighting("2026-06-12 ","Nariva Swamp");
+
+            //System.out.println("Brutus sighting count: " + t.getSightingCount());
+            System.out.println("Brutus last sighting: " + t.getLastSighting()); // nothing
         }
 
+        System.out.println();
 
         // TODO M9: Print "=== Transfer Atlas to Blue Lagoon ===" then transfer and print result
 System.out.println("=== Transfer Atlas to Blue Lagoon ===");
@@ -120,7 +130,7 @@ System.out.println("=== Transfer Atlas to Blue Lagoon ===");
         }
             }
                 System.out.println(Caroni.transferAnimal(atlasId,blagoon));
-        //bo
+        System.out.println();
         // TODO M9: Print "=== Attempt to transfer Brutus (Reptile) ===" then transfer and print result
 System.out.println("=== Attempt to transfer Brutus (Reptile) ===");
       int brutusId = -1;
@@ -133,13 +143,13 @@ System.out.println("=== Attempt to transfer Brutus (Reptile) ===");
       }
               System.out.println(Caroni.transferAnimal(brutusId,blagoon));
 
-
+        System.out.println();
         // TODO M9: Print "=== Most expensive animal at each sanctuary ==="
-System.out.println("=== Most expensive animal at each santuarty ===");
-System.out.println("Caroni: " + Caroni.getMostExpensiveAnimal() + "\n");
-System.out.println("Blue lagoon: " + blagoon.getMostExpensiveAnimal() + "\n");
+System.out.println("=== Most expensive animal at each sanctuary ===");
+System.out.println("Caroni: " + Caroni.getMostExpensiveAnimal() + " ($" + Caroni.getMostExpensiveAnimal().getDailyFoodCostTTD() + " TTD/day)" +"\n");
+System.out.println("Blue lagoon: " + blagoon.getMostExpensiveAnimal() + " ($" + blagoon.getMostExpensiveAnimal().getDailyFoodCostTTD() + " TTD/day)" +"\n");
 
-
+        System.out.println();
         // TODO M9: Print "=== Updated food budgets ==="
 System.out.println("===Updated food budgets===");
         System.out.println("Caroni Bird Sanctuary: $" + Caroni.getDailyFoodBudget() + " TTD");

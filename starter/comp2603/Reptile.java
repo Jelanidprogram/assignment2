@@ -1,4 +1,7 @@
 package comp2603;
+
+import java.util.ArrayList;
+
 /**
  * Reptile subclass. Implements Trackable but NOT Relocatable.
  *
@@ -37,24 +40,32 @@ public String getType(){return "Reptile";}
      */
 public double getDailyFoodCostTTD(){return 25.0 + getWeightKg() * 2.0;}
 
-        @Override
-        public void logSighting(String date, String location) {
 
-        }
-
-        @Override
-        public int getSightingCount() {
-            return 0;
-        }
-
-        @Override
-        public String getLastSighting() {
-            return "";
-        }
-        // --- Trackable methods ---
     // TODO M4: Implement logSighting(String date, String location)
 
     // TODO M4: Implement getSightingCount()
 
     // TODO M4: Implement getLastSighting()
+
+        @Override
+        public void logSighting(String date, String location) {
+            getSightings().add(date + " at " + location);
+        }
+
+        @Override
+        public int getSightingCount() {
+            return getSightings().size();
+        }
+
+        @Override
+        public String getLastSighting() {
+            if(getSightings().isEmpty()){
+                return "No sightings recorded";
+            }
+            ArrayList<String> list = getSightings();
+            return list.get(list.size() - 1);
+
+
+        }
+
 }
